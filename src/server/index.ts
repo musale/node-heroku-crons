@@ -1,8 +1,9 @@
 import * as express from 'express';
 import * as schedule from 'node-schedule';
+import log from '../tools/logging';
 
 schedule.scheduleJob('* * * * *', function() {
-  console.log('The answer to life, the universe, and everything!');
+  log.info(`Running a cron job at ${new Date().toISOString()}`);
 });
 
 const app = express();
